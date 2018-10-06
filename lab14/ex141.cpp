@@ -80,7 +80,10 @@ int main(){
   int a[ARRAY_SIZE] = {1, 2, 3, 4, 8, 9, 20, 3, 2, 10};
   double b[ARRAY_SIZE] = {1.1, 2.3, 3.2, 4.1, 8.3, 9.4, 20.5, 3.0, 2.1, 10.0};
   char c[ARRAY_SIZE] = {'G', 'E', 'N', 'E', 'R', 'I', 'C'};
-  int i, key, location;
+  int i, location;
+  int iKey;
+  double dKey;
+  char cKey;
   bool found;
   char choice;
   const int final_index = ARRAY_SIZE - 1;
@@ -106,20 +109,20 @@ int main(){
       cout << endl;
 
       cout << "Enter number to be located: ";
-      cin >> key;
-      search(a, 0, final_index, key, found, location);
+      cin >> iKey;
+      search(a, 0, final_index, iKey, found, location);
 
       if(found)
-        cout << key << " is in index location " << location << endl;
+        cout << iKey << " is in index location " << location << endl;
 
       else
-        cout << key << " is not in the array." << endl;
+        cout << iKey << " is not in the array." << endl;
 
       break;
 
 
     case 'b':
-      cout << "The contents of the integer array: " << endl;
+      cout << "The contents of the double array: " << endl;
       for (i = 0; i < ARRAY_SIZE; i++){
         cout << b[i] << " ";
       }
@@ -133,20 +136,20 @@ int main(){
       cout << endl;
 
       cout << "Enter number to be located: ";
-      cin >> key;
-      search(b, 0, final_index, key, found, location);
+      cin >> dKey;
+      search(b, 0, final_index, dKey, found, location);
 
       if(found)
-        cout << key << " is in index location " << location << endl;
+        cout << dKey << " is in index location " << location << endl;
 
       else
-        cout << key << " is not in the array." << endl;
+        cout << dKey << " is not in the array." << endl;
 
       break;
 
 
     case 'c':
-      cout << "The contents of the integer array: " << endl;
+      cout << "The contents of the character array: " << endl;
       for (i = 0; i < ARRAY_SIZE; i++){
         cout << c[i] << " ";
       }
@@ -159,15 +162,15 @@ int main(){
       }
       cout << endl;
 
-      cout << "Enter number to be located: ";
-      cin >> key;
-      search(c, 0, final_index, key, found, location);
+      cout << "Enter character to be located: ";
+      cin >> cKey;
+      search(c, 0, final_index, cKey, found, location);
 
       if(found)
-        cout << key << " is in index location " << location << endl;
+        cout << cKey << " is in index location " << location << endl;
 
       else
-        cout << key << " is not in the array." << endl;
+        cout << cKey << " is not in the array." << endl;
 
       break;
 
