@@ -123,7 +123,8 @@ NodePtr search(NodePtr head, int a_day, int a_month, int a_year){
       here = here -> link;
 
       //Found the target, return the pointer at that location
-      if(here -> date_item == a_day && a_month && a_year)
+      if((here -> date_item == a_day) && (here -> date_item == a_month)
+        && (here -> date_item == a_year))
         return here;
 
       //Search unsuccessful, return NULL
