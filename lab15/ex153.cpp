@@ -17,7 +17,7 @@ struct Node{
 
 typedef Node* NodePtr;
 
-void remove(NodePtr after_me, string an_item);
+void remove(NodePtr after_me, NodePtr before_me);
 void insert(NodePtr after_me, string an_item, int a_number);
 void head_insert(NodePtr& head, string an_item, int a_number);
 void show_list(NodePtr& head);
@@ -25,7 +25,7 @@ NodePtr search(NodePtr head, string target);
 
 int main(){
 
-  string new_item, target;
+  string new_item, target, rem_item, bef_target, aft_target;
   int new_count, choice;
   NodePtr head = NULL;
   head_insert(head, "Tea", 2);
@@ -37,6 +37,8 @@ int main(){
 
   NodePtr after_me = head;
   after_me = after_me -> link;
+  NodePtr before_me;
+  before_me = before_me -> link;
 
   cout << "Would you like to insert(1) or delete(2) an item?" << endl;
   cin >> choice;
@@ -70,8 +72,29 @@ int main(){
     }
 
     case 2:{
+      cout << "Enter the item you wish to delete (string) \n";
+      cin >> rem_item;
+      cout << "Enter the item before which you want to remove" << endl;
+      cin >> bef_target;
+      after_me = search(head, bef_target);
+      cout << "Enter the item after which you want to remove" << endl;
+      cin >> aft_target;
+      before_me = search(head, aft_target);
 
+      if(after_me != NULL && before_me != NULL){
+        cout << "\nWe will remove te item " << rem_item
+          << " after the node with " << (after_me -> item)
+          << " and before the node with " << (before_me -> item) << endl;
+        remove(after_me, before_me);
+
+        cout << "List now contains:" << endl;
+        show_list(head);
+      }else{
+        cout << "No such item exists or I can't remove that item." << endl;
+      }
     }
+
+    break;
   }
 
 
@@ -79,10 +102,10 @@ int main(){
   return 0;
 }
 
-void remove(struct Node *head, struct Node *n){
+void remove(NodePtr after_me, NodePtr before_me){
   //Node before target must point to node after target
-
-
+  before_me -> link = after_me -> link;
+  after_me -> link = before_me;
 }
 
 //Uses cstddef:
@@ -127,7 +150,7 @@ NodePtr search(NodePtr head, string target){
   //If the list is empty nothing to search
   if(here == NULL){
     return NULL;
-    
+
   }else{
     //While you have still items and you haven't found the target yet
     while(here -> item != target && here -> link != NULL)
