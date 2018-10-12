@@ -22,9 +22,9 @@ namespace savitchemployees
         //deliberately empty
     }
 
-    void SalariedEmployee::give_raise(double amount)
+    void SalariedEmployee::give_raise()
     {
-        salary = salary + amount;
+        salary = (salary * 0.1) + salary;
     }
 
     double SalariedEmployee::get_salary()

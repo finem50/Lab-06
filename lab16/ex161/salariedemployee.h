@@ -19,7 +19,7 @@ namespace savitchemployees
         double get_salary();
         void change_salary(double new_salary);
         void print_check();
-        void give_raise(double amount);
+        void give_raise();
     private:
         double salary;   //weekly
     };

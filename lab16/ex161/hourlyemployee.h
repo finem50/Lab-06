@@ -20,7 +20,7 @@ namespace savitchemployees
         double get_rate();
         void set_hours(double hours_worked);
         double get_hours();
-        void give_raise(double amount);
+        void give_raise();
         void print_check();
     private:
         double wage_rate;

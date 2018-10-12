@@ -48,9 +48,9 @@ namespace savitchemployees
     }
 
 
-    void HourlyEmployee::give_raise( double amount)
+    void HourlyEmployee::give_raise()
     {
-        wage_rate = wage_rate + amount;
+        wage_rate = (wage_rate * 0.1) + wage_rate ;
     }
 
 
